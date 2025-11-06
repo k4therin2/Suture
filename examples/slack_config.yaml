@@ -1,0 +1,68 @@
+# Suture Configuration for Slack
+# This example shows how to configure Suture to scrape Slack messages
+
+version: "1.0"
+
+# Platform configuration
+platform:
+  name: slack
+  auth_type: cookies
+  base_url: "https://app.slack.com"
+  healer_module: "suture.platforms.slack.healer"
+
+  # Data schema definition
+  schema:
+    message:
+      channel: string
+      author: string
+      timestamp_iso: string
+      timestamp_epoch: integer
+      text: string
+      url: string
+      reactions:
+        type: array
+        optional: true
+
+  # CSS selectors for Slack UI elements
+  selectors:
+    message_container: ".c-virtual_list__item"
+    message_text: ".c-message_kit__text"
+    author: ".c-message__sender_button"
+    timestamp: ".c-timestamp"
+
+# LLM configuration
+llm:
+  # Option 1: Local with Ollama (free, private, no API key needed)
+  provider: ollama
+  model: llama3.2:3b
+  base_url: "http://localhost:11434"
+  temperature: 0.7
+  max_tokens: 4096
+
+  # Option 2: Cloud with Anthropic (powerful, requires API key)
+  # provider: anthropic
+  # model: claude-3-5-haiku-20250101
+  # api_key: ${ANTHROPIC_API_KEY}  # Set via environment variable
+  # temperature: 0.7
+  # max_tokens: 4096
+
+  # Option 3: Cloud with OpenAI
+  # provider: openai
+  # model: gpt-4
+  # api_key: ${OPENAI_API_KEY}
+  # temperature: 0.7
+  # max_tokens: 4096
+
+# Database configuration
+database:
+  type: sqlite
+  path: "slack_messages.db"
+
+# Agent behavior settings
+max_recovery_attempts: 3
+enable_human_loop: false
+confidence_threshold: 0.8
+
+# Browser settings
+browser_headless: true
+browser_timeout: 30000

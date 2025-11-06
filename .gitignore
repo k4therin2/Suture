@@ -1,0 +1,95 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# Data and logs
+*.log
+*.db
+*.sqlite
+*.sqlite3
+data/
+logs/
+output/
+debug/
+screenshots/
+
+# Secrets
+.env
+.env.local
+config.local.yaml
+credentials.json
+*_secret*.yaml
+
+# Playwright
+playwright-state/
+test-results/
+
+# ChromaDB
+chroma/
+*.chroma
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Documentation build
+site/
+docs/_build/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
